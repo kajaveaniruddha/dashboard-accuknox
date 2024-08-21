@@ -18,7 +18,7 @@ If you haven't cloned the repository yet, do so by running:
 ```
 git clone https://github.com/kajaveaniruddha/dashboard-accuknox.git
 
-cd ashboard-accuknox
+cd dashboard-accuknox
 ```
 
 ### 2. Install Dependencies
