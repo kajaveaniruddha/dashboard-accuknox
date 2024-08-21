@@ -1,50 +1,91 @@
-# React + TypeScript + Vite
+# Dashboard Accuknox
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project is a Vite-based React application located in the `dashboard-accuknox` folder. Follow the instructions below to set up and run the project on your local machine.
 
-Currently, two official plugins are available:
+## Prerequisites
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Ensure you have the following installed:
 
-## Expanding the ESLint configuration
+- [Node.js](https://nodejs.org/) (v14 or higher)
+- [npm](https://www.npmjs.com/) (v6 or higher) or [Yarn](https://yarnpkg.com/)
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Getting Started
 
-- Configure the top-level `parserOptions` property like this:
+### 1. Clone the Repository
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+If you haven't cloned the repository yet, do so by running:
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+bash
+git clone [https://github.com/your-username/your-repo-name.git](https://github.com/kajaveaniruddha/dashboard-accuknox/)
+cd your-repo-name/dashboard-accuknox
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+### 2. Install Dependencies
+
+Navigate to the `dashboard-accuknox` directory and install the required dependencies:
+
+bash
+cd dashboard-accuknox
+npm install
+
+
+Or, if you're using Yarn:
+
+bash
+cd dashboard-accuknox
+yarn install
+
+
+### 3. Run the Development Server
+
+After installing the dependencies, start the development server:
+
+bash
+npm run dev
+
+
+Or, if you're using Yarn:
+
+bash
+yarn dev
+
+
+This will start the Vite development server and open the application in your default browser. The app will automatically reload if you change any of the source files.
+
+### 4. Build for Production
+
+To build the project for production, run:
+
+bash
+npm run build
+
+
+Or, if you're using Yarn:
+
+bash
+yarn build
+
+
+This will create an optimized production build in the `dist` directory.
+
+### 5. Preview the Production Build
+
+To preview the production build locally, you can run:
+
+bash
+npm run preview
+
+
+Or, if you're using Yarn:
+
+bash
+yarn preview
+
+
+## Available Scripts
+
+In the project directory, you can run the following scripts:
+
+- `npm run dev` or `yarn dev`: Starts the development server.
+- `npm run build` or `yarn build`: Builds the app for production.
+- `npm run preview` or `yarn preview`: Previews the production build locally.
