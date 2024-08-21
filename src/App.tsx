@@ -1,10 +1,11 @@
+import React, { useEffect, useState } from "react";
 import { ChartNoAxesCombined, ChartPie } from "lucide-react";
 import "./App.css";
 import { Button } from "./components/ui/button";
 import { Card } from "./components/ui/card";
 import Navbar from "./components/common/navbar";
 import PieChartDonutWithText from "./components/common/pie-chart-donut-with-text";
-import { CSPM, CWPP } from "./constants/data";
+import { CSPM as initialCSPM, CWPP as initialCWPP } from "./constants/data";
 import {
   Sheet,
   SheetContent,
@@ -13,8 +14,28 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
+import SheetForm from "./components/common/sheet-form";
 
 function App() {
+  // State to hold CSPM and CWPP widgets
+  const [CSPM, setCSPM] = useState(initialCSPM);
+  const [CWPP, setCWPP] = useState(initialCWPP);
+
+  // Load data from localStorage on startup
+  useEffect(() => {
+    const storedCSPM = JSON.parse(localStorage.getItem("CSPM"));
+    const storedCWPP = JSON.parse(localStorage.getItem("CWPP"));
+
+    if (storedCSPM) setCSPM(storedCSPM);
+    if (storedCWPP) setCWPP(storedCWPP);
+  }, []);
+
+  // Save data to localStorage whenever CSPM or CWPP changes
+  useEffect(() => {
+    localStorage.setItem("CSPM", JSON.stringify(CSPM));
+    localStorage.setItem("CWPP", JSON.stringify(CWPP));
+  }, [CSPM, CWPP]);
+
   return (
     <main className="bg-slate-200 min-h-screen pb-20">
       <Navbar />
@@ -26,18 +47,16 @@ function App() {
             {CSPM.map((widget) => (
               <>
                 {widget.chartData.length === 0 ? (
-                  <>
-                    <Card className="p-6 flex flex-col items-center justify-center h-[270px] font-medium">
-                      <ChartPie size={70} color="#adb5bd" />
-                      No Graph Data Available!
-                    </Card>
-                  </>
-                ) : (
+                  <Card className="p-6 flex flex-col items-center justify-center h-[270px] font-medium">
+                    <ChartPie size={70} color="#adb5bd" />
+                    No Graph Data Available!
+                  </Card>
+                ) : widget.visible ? (
                   <PieChartDonutWithText
                     title={widget.title}
                     chartData={widget.chartData}
                   />
-                )}
+                ) : null}
               </>
             ))}
             <Card className="flex flex-col items-center justify-center">
@@ -51,6 +70,12 @@ function App() {
                     <SheetDescription>
                       Personalise your dashboard by adding the following widget
                     </SheetDescription>
+                    <SheetForm
+                      CSPM={CSPM}
+                      setCSPM={setCSPM}
+                      CWPP={CWPP}
+                      setCWPP={setCWPP}
+                    />
                   </SheetHeader>
                 </SheetContent>
               </Sheet>
@@ -64,18 +89,16 @@ function App() {
             {CWPP.map((widget) => (
               <>
                 {widget.chartData.length === 0 ? (
-                  <>
-                    <Card className=" flex flex-col items-center justify-center h-[270px] font-medium">
-                      <ChartNoAxesCombined size={70} color="#adb5bd" />
-                      No Graph Data Available!
-                    </Card>
-                  </>
-                ) : (
+                  <Card className=" flex flex-col items-center justify-center h-[270px] font-medium">
+                    <ChartNoAxesCombined size={70} color="#adb5bd" />
+                    No Graph Data Available!
+                  </Card>
+                ) : widget.visible ? (
                   <PieChartDonutWithText
                     title={widget.title}
                     chartData={widget.chartData}
                   />
-                )}
+                ) : null}
               </>
             ))}
             <Card className="flex flex-col items-center justify-center">
@@ -90,6 +113,12 @@ function App() {
                       Personalise your dashboard by adding the following widget
                     </SheetDescription>
                   </SheetHeader>
+                  <SheetForm
+                    CSPM={CSPM}
+                    setCSPM={setCSPM}
+                    CWPP={CWPP}
+                    setCWPP={setCWPP}
+                  />
                 </SheetContent>
               </Sheet>
             </Card>

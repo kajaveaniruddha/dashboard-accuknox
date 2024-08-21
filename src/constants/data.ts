@@ -5,6 +5,7 @@ export const CSPM = [
       { category: "Active", count: 2, fill: "#caf0f8" },
       { category: "Not Active", count: 2, fill: "#00b4d8" },
     ],
+    visible: true,
   },
   {
     title: "Cloud Account Risk Management",
@@ -15,6 +16,7 @@ export const CSPM = [
       { category: "edge", count: 130, fill: "#fcbf49" },
       { category: "other", count: 170, fill: "#eae2b7" },
     ],
+    visible: true,
   },
 ];
 
@@ -22,10 +24,11 @@ export const CWPP = [
   {
     title: "Top 5 Namespace Specific Alerts",
     chartData: [],
+    visible: true,
   },
   {
     title: "Workload Alerts",
     chartData: [],
+    visible: true,
   },
 ];
-
