@@ -15,40 +15,41 @@ Ensure you have the following installed:
 
 If you haven't cloned the repository yet, do so by running:
 
-bash
-git clone [https://github.com/your-username/your-repo-name.git](https://github.com/kajaveaniruddha/dashboard-accuknox/)
-cd your-repo-name/dashboard-accuknox
+```
+git clone https://github.com/kajaveaniruddha/dashboard-accuknox.git
 
+cd ashboard-accuknox
+```
 
 ### 2. Install Dependencies
 
 Navigate to the `dashboard-accuknox` directory and install the required dependencies:
 
-bash
+```
 cd dashboard-accuknox
 npm install
-
+```
 
 Or, if you're using Yarn:
 
-bash
+```
 cd dashboard-accuknox
 yarn install
-
+```
 
 ### 3. Run the Development Server
 
 After installing the dependencies, start the development server:
 
-bash
+```
 npm run dev
-
+```
 
 Or, if you're using Yarn:
 
-bash
+```
 yarn dev
-
+```
 
 This will start the Vite development server and open the application in your default browser. The app will automatically reload if you change any of the source files.
 
@@ -56,15 +57,15 @@ This will start the Vite development server and open the application in your def
 
 To build the project for production, run:
 
-bash
+```
 npm run build
-
+```
 
 Or, if you're using Yarn:
 
-bash
+```
 yarn build
-
+```
 
 This will create an optimized production build in the `dist` directory.
 
@@ -72,17 +73,15 @@ This will create an optimized production build in the `dist` directory.
 
 To preview the production build locally, you can run:
 
-bash
+```
 npm run preview
-
+```
 
 Or, if you're using Yarn:
 
-bash
+```
 yarn preview
-
-
-## Available Scripts
+```
 
 In the project directory, you can run the following scripts:
 
